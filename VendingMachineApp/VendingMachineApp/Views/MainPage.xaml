@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:VendingMachineApp"
+             x:Class="VendingMachineApp.MainPage"
+             Title="Home">
+    <AbsoluteLayout>
+        <Grid x:Name="mainScn" IsVisible="False" BackgroundColor="Black" Opacity="0.5" AbsoluteLayout.LayoutFlags="SizeProportional" AbsoluteLayout.LayoutBounds="1,1,1,1"/>
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" >
+            <Image Source="background.png" Opacity="0.2"
+                    RelativeLayout.WidthConstraint=
+                      "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                    RelativeLayout.HeightConstraint=
+                      "{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
+            <Grid RelativeLayout.WidthConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                RelativeLayout.HeightConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Height}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Button Text="Scan QR Code"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="Center"
+                Clicked="OnButtonClicked" />
+                <Button Text="Atalho para máquina de café"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"
+                Grid.Row="1"
+                Clicked="Button_Clicked" />
+            </Grid>
+        </RelativeLayout>
+
+        <StackLayout x:Name="actScreen" IsVisible="false"
+                        AbsoluteLayout.LayoutFlags="PositionProportional" 
+                        AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1" >
+
+            <ActivityIndicator x:Name="actIndicator" Color="Green" />
+        </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>

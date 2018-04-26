@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:VendingMachineApp"
+             x:Class="VendingMachineApp.MenuPage"
+             Title="MenuPage">
+    <StackLayout>
+        <ListView x:Name="menuItemsView" ItemSelected="OnSelection">
+            <ListView.Header>
+                <StackLayout>
+                    <Label Text="Menu" FontSize="36" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="LightSeaGreen" TextColor="Black" Opacity="0.7"/>
+                </StackLayout>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell TextColor="Black" Text="{Binding DisplayName}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Label Text="Copyright © 2011-2017 Inautec - Todos os direitos reservados." FontSize="10.5" HorizontalTextAlignment="Center" VerticalOptions="EndAndExpand" TextColor="Gray" />
+    </StackLayout>
+    
+
+</ContentPage>

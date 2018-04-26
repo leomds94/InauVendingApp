@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:VendingMachineApp"
+             x:Class="VendingMachineApp.BuyProductPage"
+             xmlns:Control="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+             Title="Comprar produto">
+    <AbsoluteLayout>
+        <Grid x:Name="mainScn" IsVisible="False" BackgroundColor="Black" Opacity="0.8" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,0,0"/>
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" >
+            <Image Source="vending.png"
+                    RelativeLayout.WidthConstraint=
+                      "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                    RelativeLayout.HeightConstraint=
+                      "{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
+            <Grid RelativeLayout.WidthConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                RelativeLayout.HeightConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Height}">
+
+                <Grid Margin="0,9,0,9">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="Btn0" Text="Café expresso" Grid.Row="0" Grid.Column="0" BackgroundColor="Transparent" Opacity="0.0" Clicked="ProductClicked" />
+                    <Button x:Name="Btn1" Text="Cappucino" Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent" Opacity="0.0" Clicked="ProductClicked"/>
+                    <Button x:Name="Btn2" Text="Café Longo" Grid.Row="1" Grid.Column="0" BackgroundColor="Transparent" Opacity="0.0" Clicked="ProductClicked"/>
+                    <Button x:Name="Btn3" Text="Chocolate" Grid.Row="1" Grid.Column="1" BackgroundColor="Transparent" Opacity="0.0" Clicked="ProductClicked"/>
+                    <Button x:Name="Btn4" Text="Café com leite" Grid.Row="2" Grid.Column="0" BackgroundColor="Transparent" Opacity="0.0" Clicked="ProductClicked"/>
+                    <Button x:Name="Btn5" Text="Cappucino Chocolat" Grid.Row="2" Grid.Column="1" BackgroundColor="Transparent" Opacity="0.0" Clicked="ProductClicked"/>
+                    <Button x:Name="Btn6" Text="Água Quente" Grid.Row="3" Grid.Column="0" BackgroundColor="Transparent" Opacity="0.0" Clicked="ProductClicked"/>
+                    <Button x:Name="Btn7" Text="Leite" Grid.Row="3" Grid.Column="1" BackgroundColor="Transparent" Opacity="0.0" Clicked="ProductClicked"/>
+                </Grid>
+            </Grid>
+        </RelativeLayout>
+    </AbsoluteLayout>
+
+    <!--<StackLayout>
+        <Control:CarouselView x:Name="productsView" ItemsSource="{Binding  products}" Position="{Binding Position, Mode=TwoWay}">
+            <Control:CarouselView.ItemTemplate x:key="{Binding ProductMachineId}">
+                <DataTemplate>
+                    <Grid>
+                        <Label Text="{Binding Product.ProductName }" FontSize="Medium" VerticalOptions="Start" HorizontalOptions="Center" />
+                        <Image Source="{Binding Product.ProductImage }" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Row="1" />
+                        <Label Text="{Binding ProductMachinePrice, StringFormat='Preço: R$ {0:F2}'}" FontSize="Medium" Grid.Row="2"  VerticalOptions="Center" HorizontalOptions="Center" />
+                        
+    <Image Source="{Binding Name}"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"/>
+    
+                        <Button x:Name="{Binding ProductId}"
+                                Text="Finalizar Pedido"
+                                Clicked="ProductClicked"
+                                Grid.Row="2"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="End"
+                                BackgroundColor="Silver"/>
+                    </Grid>
+                </DataTemplate>
+            </Control:CarouselView.ItemTemplate>
+        </Control:CarouselView>
+    </StackLayout>-->
+</ContentPage>
