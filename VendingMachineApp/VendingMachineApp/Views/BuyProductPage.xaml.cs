@@ -18,6 +18,7 @@ namespace VendingMachineApp
     {
         public static int screenWidth;
         public static int screenHeight;
+        public static bool isBusy;
         PayPalItem purchaseItem;
 
         public ProductMachine boughtProd;
@@ -43,10 +44,27 @@ namespace VendingMachineApp
             //};
         }
 
+        void LoadingScreen(Boolean b)
+        {
+            if (b == true)
+            {
+                mainScn.IsVisible = true;
+                actIndicator.IsRunning = true;
+                actScreen.IsVisible = true;
+            }
+            else
+            {
+                mainScn.IsVisible = false;
+                actIndicator.IsRunning = false;
+                actScreen.IsVisible = false;
+            }
+        }
+
 
         async void ProductClicked(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
+
             if(btn.Id == Btn0.Id)
             {
                 boughtProd = Products[0];
@@ -100,14 +118,17 @@ namespace VendingMachineApp
             }
             else if (result.Status == PayPalStatus.Successful)
             {
-                if (connectAPI.SendPendingCommand(boughtProd).Result)
+                LoadingScreen(true);
+
+                if (await connectAPI.SendPendingCommand(boughtProd))
                 {
-                    Debug.WriteLine(result.ServerResponse.Response.Id);
+                    LoadingScreen(false);
                     await DisplayAlert("Sucesso", "Pagamento Realizado com sucesso! Retire o seu produto da máquina.", "OK");
                     await App.NavigationPage.Navigation.PopAsync();
                 }
                 else
                 {
+                    LoadingScreen(false);
                     await DisplayAlert("Falha", "A aplicação não conseguiu contato com a máquina! Tente novamente mais tarde. (Seu dinheiro será estornado)", "OK");
                     await App.NavigationPage.Navigation.PopAsync();
                 }

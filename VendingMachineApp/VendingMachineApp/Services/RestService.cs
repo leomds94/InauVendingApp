@@ -22,6 +22,7 @@ namespace VendingMachineApp.Services
 
         public async Task<List<ProductMachine>> RefreshDataAsync()
         {
+            var Url = "http://inauvendingserver.azurewebsites.net/api/machinesapi/0";
             var uri = new Uri(string.Format(Url, string.Empty));
             var response = await client.GetAsync(uri);
             if (response.IsSuccessStatusCode)
@@ -35,25 +36,20 @@ namespace VendingMachineApp.Services
 
         public async Task<bool> SendPendingCommand(ProductMachine boughtProd)
         {
-            Url = "http://vendinginautec.azurewebsites.net/api/PendingApp";
             PendingCommand pendingProd = new PendingCommand { ProductMachineId = boughtProd.ProductMachineId, status = 0 };
-            var uri = new Uri(string.Format(Url, string.Empty));
+
             string content = JsonConvert.SerializeObject(pendingProd);
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
-            var response = client.PostAsync(Url, stringContent).Result;
+            var response = client.PostAsync("http://inauvendingserver.azurewebsites.net/api/PendingApp", stringContent).Result;
+            var contentResPost = await response.Content.ReadAsStringAsync();
             if (response.IsSuccessStatusCode)
             {
                 HttpResponseMessage getresponse;
-                string contentRes;
                 do
                 {
-                    getresponse = client.GetAsync("http://vendinginautec.azurewebsites.net/api/GetPendingProducts/productstatus").Result;
-                    contentRes = await getresponse.Content.ReadAsStringAsync();
-                } while (contentRes == "false");
-                if(contentRes == "true")
-                    return true;
-                else
-                    return false;
+                    getresponse = client.GetAsync("http://inauvendingserver.azurewebsites.net/api/PendingApp/productstatus").Result;
+                } while (!getresponse.IsSuccessStatusCode);
+                return true;
             }
             else
                 return false;

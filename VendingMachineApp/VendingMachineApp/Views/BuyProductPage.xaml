@@ -6,7 +6,17 @@
              xmlns:Control="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
              Title="Comprar produto">
     <AbsoluteLayout>
-        <Grid x:Name="mainScn" IsVisible="False" BackgroundColor="Black" Opacity="0.8" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,0,0"/>
+        <StackLayout x:Name="actScreen" IsVisible="false"
+                        AbsoluteLayout.LayoutFlags="PositionProportional" 
+                        AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1" >
+
+            <ActivityIndicator x:Name="actIndicator" Color="Green" />
+        </StackLayout>
+        <!--<ActivityIndicator
+                           IsVisible="{Binding IsBusy}"
+                           IsRunning="{Binding IsBusy}"
+                           Color="Black" />-->
+        <Grid x:Name="mainScn" IsVisible="False" BackgroundColor="White" Opacity="0.8" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,0,0"/>
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" >
             <Image Source="vending.png"
                     RelativeLayout.WidthConstraint=
