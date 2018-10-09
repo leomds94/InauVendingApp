@@ -26,7 +26,17 @@ namespace VendingMachineApp
 
         public BuyProductPage()
         {
-            Products = new ObservableCollection<ProductMachine>(RestService.Products.OrderBy(o => o.ProductMachineIndex));
+            var ProductsNotOrdered = new List<ProductMachine>(RestService.Products.OrderBy(o => o.ProductMachineId));
+
+            Products = new ObservableCollection<ProductMachine>();
+            Products.Add(ProductsNotOrdered[1]); // Cappuccino
+            Products.Add(ProductsNotOrdered[3]); // Chocolate
+            Products.Add(ProductsNotOrdered[5]); // Cappuccino Chocolate
+            Products.Add(ProductsNotOrdered[7]); // Leite
+
+
+
+
 
             InitializeComponent();
 
@@ -81,22 +91,22 @@ namespace VendingMachineApp
             {
                 boughtProd = Products[3];
             }
-            else if (btn.Id == Btn4.Id)
-            {
-                boughtProd = Products[4];
-            }
-            else if (btn.Id == Btn5.Id)
-            {
-                boughtProd = Products[5];
-            }
-            else if (btn.Id == Btn6.Id)
-            {
-                boughtProd = Products[6];
-            }
-            else if (btn.Id == Btn7.Id)
-            {
-                boughtProd = Products[7];
-            }
+            //else if (btn.Id == Btn4.Id)
+            //{
+            //    boughtProd = Products[4];
+            //}
+            //else if (btn.Id == Btn5.Id)
+            //{
+            //    boughtProd = Products[5];
+            //}
+            //else if (btn.Id == Btn6.Id)
+            //{
+            //    boughtProd = Products[6];
+            //}
+            //else if (btn.Id == Btn7.Id)
+            //{
+            //    boughtProd = Products[7];
+            //}
 
             purchaseItem = new PayPalItem(
                     boughtProd.Product.ProductName,

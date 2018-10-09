@@ -28,7 +28,7 @@
                 RelativeLayout.HeightConstraint=
                   "{ConstraintExpression Type=RelativeToParent, Property=Height}">
 
-                <Grid Margin="0,9,0,9">
+                <Grid Margin="0,9,0,9" HorizontalOptions="CenterAndExpand">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                         <RowDefinition Height="*" />
@@ -37,16 +37,15 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Button x:Name="Btn0" Text="Café expresso" Grid.Row="0" Grid.Column="0" BackgroundColor="Transparent" Opacity="0.0" Clicked="ProductClicked" />
-                    <Button x:Name="Btn1" Text="Cappucino" Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent" Opacity="0.0" Clicked="ProductClicked"/>
-                    <Button x:Name="Btn2" Text="Café Longo" Grid.Row="1" Grid.Column="0" BackgroundColor="Transparent" Opacity="0.0" Clicked="ProductClicked"/>
-                    <Button x:Name="Btn3" Text="Chocolate" Grid.Row="1" Grid.Column="1" BackgroundColor="Transparent" Opacity="0.0" Clicked="ProductClicked"/>
-                    <Button x:Name="Btn4" Text="Café com leite" Grid.Row="2" Grid.Column="0" BackgroundColor="Transparent" Opacity="0.0" Clicked="ProductClicked"/>
+                    <Button x:Name="Btn1" Text="Cappucino" Grid.Row="1" Grid.Column="0" BackgroundColor="Transparent" Opacity="0.0" Clicked="ProductClicked"/>
+                    <Button x:Name="Btn2" Text="Café Longo" Grid.Row="2" Grid.Column="0" BackgroundColor="Transparent" Opacity="0.0" Clicked="ProductClicked"/>
+                    <Button x:Name="Btn3" Text="Chocolate" Grid.Row="3" Grid.Column="0" BackgroundColor="Transparent" Opacity="0.0" Clicked="ProductClicked"/>
+                    <!--<Button x:Name="Btn4" Text="Café com leite" Grid.Row="2" Grid.Column="0" BackgroundColor="Transparent" Opacity="0.0" Clicked="ProductClicked"/>
                     <Button x:Name="Btn5" Text="Cappucino Chocolat" Grid.Row="2" Grid.Column="1" BackgroundColor="Transparent" Opacity="0.0" Clicked="ProductClicked"/>
                     <Button x:Name="Btn6" Text="Água Quente" Grid.Row="3" Grid.Column="0" BackgroundColor="Transparent" Opacity="0.0" Clicked="ProductClicked"/>
-                    <Button x:Name="Btn7" Text="Leite" Grid.Row="3" Grid.Column="1" BackgroundColor="Transparent" Opacity="0.0" Clicked="ProductClicked"/>
+                    <Button x:Name="Btn7" Text="Leite" Grid.Row="3" Grid.Column="1" BackgroundColor="Transparent" Opacity="0.0" Clicked="ProductClicked"/>-->
                 </Grid>
             </Grid>
         </RelativeLayout>
